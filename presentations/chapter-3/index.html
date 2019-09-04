@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<!--<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+	<link rel="stylesheet" href="../../revealjs/css/theme/night.css"> -->
+	<!-- Theme used for syntax highlighting of code -->
+	<!--<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css"> -->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/night.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../../../revealjs/css/print/pdf.css' : '../../revealjs/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<style>
+		.reset-img {
+			border: 0 !important;
+			background: none !important;
+			box-shadow: none !important;
+		}
+
+		#chapters {
+			margin: 0;
+			list-style-type: none;
+			display: grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 20% 20% 20% 20% 20%;
+			grid-auto-flow: column;
+			font-size: 34px;
+		}
+
+		.slide-top {
+			top: 0 !important;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<p style="height:450px;">Practical Web Development</p>
+				<h3>Transition to SPA</h3>
+			</section>
+			<section>
+				<ul>
+					<li><a href="http://info.cern.ch/hypertext/WWW/TheProject.html" target="_blank">August 6, 1991
+							(http://info.cern.ch/)</a></li>
+					<li><a href="https://marketplace.att.com/" target="_blank">At&t Marketplace</a></li>
+				</ul>
+			</section>
+			<section class="slide-top">
+				<h5>Web Application</h5>
+				<p>“The use case of an application is always to DO something with it”.</p>
+				<ul>
+					<li>Rich/interactive user interface</li>
+					<li>Action-oriented rather than information oriented.</li>
+					<li>Creation versus Consumption</li>
+					<li>Not relying heavily on (or hiding when possible) the browser chrome (back button, reload button,
+						address bar)</li>
+				</ul>
+			</section>
+			<section class="slide-top">
+				<h5>Why Web Application? </h5>
+				<ul>
+					<li>Better UX</li>
+					<li>Ease of development</li>
+					<li>Ease of Maintenance</li>
+					<li>Cross-platform</li>
+					<li>Mobility</li>
+					<li>No need for “Market Place”</li>
+					<li>Etc.</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<img class="reset-img" height="400px" src="../../assets/box-model.png" />
+					<ul style=" font-size: 26px; ">
+						<li>Content - The content of the box, where text and images appear</li>
+						<li>Padding - Clears an area around the content. The padding is transparent</li>
+						<li>Border - A border that goes around the padding and content</li>
+						<li>Margin - Clears an area outside the border. The margin is transparent</li>
+					</ul>
+				</section>
+				<section>
+						<img class="reset-img" height="400px" src="../../assets/box-model-sg.png" />
+		
+				</section>
+				<section>
+						<pre style="height: 100%; width: 100%; margin: 0;">
+								<code class="language-css" style="max-height: 100%; padding: 20px;">
+	.parent {
+			width: 50%;
+			border: 5px solid #E18728;
+			margin: 30px;
+		  }
+		  
+		  .child {
+			width: 90%;
+			padding: 20%;
+			border: 4px solid black;
+		  }
+		  
+		  .twins {
+			width: 50%;
+			padding: 1em;
+			border: 4px solid black;
+		  }
+		</code>
+							</pre>
+				</section>
+				<section>
+					<iframe width="100%" height="600px" style=" background-color: white; "
+						src="https://codepen.io/team/css-tricks/full/970f26f621cfa3ae3eec7e2a6b0e8c97"></iframe>
+				</section>
+				<section>
+					<img class="reset-img" width="100%" src="../../assets/box-sizing-comparison.png" />
+				</section>
+				<section style="line-height: 1;">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-css" style="max-height: 100%; padding: 20px;">* {
+  box-sizing: border-box;
+}</code>
+					</pre>
+					<div class="fragment">
+						<div style="font-size: 28px;">#Universal Box Sizing</div>
+						<pre style="height: 100%; width: 100%; margin: 0;">
+							<code class="language-css" style="max-height: 100%; padding: 20px;">*, *::before, *::after {
+  box-sizing: border-box;
+}</code>
+						</pre>
+					</div>
+
+					<div class="fragment">
+						<div style="font-size: 28px;">#Universal Box Sizing with Inheritance</div>
+						<pre style="height: 100%; width: 100%; margin: 0;">
+							<code class="language-css" style="max-height: 100%; padding: 20px;">html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}</code>
+						</pre>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<img class="reset-img" width="100%" height="500px" src="../../assets/ruler.jpg" />
+				</section>
+				<section>
+					<h5>ABSOLUTE UNITS</h5>
+					<ul>
+						<li>px</li>
+						<li>cm</li>
+						<li>mm</li>
+						<li>Q</li>
+						<li>in</li>
+						<li>pc</li>
+						<li>pt</li>
+					</ul>
+				</section>
+				<section>
+					<h5>RELATIVE LENGTHS</h5>
+					<ul>
+						<li>%</li>
+						<li>em</li>
+						<li>ex</li>
+						<li>ch</li>
+						<li>rem</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Viewport units</h5>
+					<ul>
+						<li>vw</li>
+						<li>vh</li>
+						<li>vmin</li>
+						<li>vmax</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>CSS Display</h5>
+					<ul>
+						<li>display: block</li>
+						<li>display: inline</li>
+						<li>display: inline-block</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Display: block</h5>
+					<ul>
+						<li>Take full-width (100% width) by default</li>
+						<li>Each gets displayed in a new line</li>
+						<li>Width & height properties can be set</li>
+						<li>Can contain other block or inline elements</li>
+					</ul>
+					<img class="reset-img" src="../../assets/display-block.png" />
+				</section>
+				<section>
+					<h5>Display: inline</h5>
+					<ul>
+						<li>Take only as much space as they need</li>
+						<li>Displayed side by side</li>
+						<li>Don’t accept width or height properties, and top-bottom margin</li>
+						<li>Can be a parent of other inline elements</li>
+					</ul>
+					<img class="reset-img" src="../../assets/display-inline.png" />
+				</section>
+				<section>
+					<h5>Display: inline-block</h5>
+					<img class="reset-img" src="../../assets/display-inline-block.png" />
+				</section>
+				<section>
+					<h5>Display: Flex</h5>
+					<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+						target="_blank">https://css-tricks.com/snippets/css/a-guide-to-flexbox</a>
+					<h5 style="margin-top: 80px;">Display: Grid</h5>
+					<a href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+						target="_blank">https://css-tricks.com/snippets/css/complete-guide-grid</a>
+				</section>
+			</section>
+			<section>
+				<h2><a href="./../../exercises/#/1" target="_blank">Hands-On - exercise-1</a></h2>
+			</section>
+			<section>
+				<section>
+					<h2>Layout</h2>
+					<p>
+						lay·out <br>
+						<i>/ˈlāˌout/</i> </br>
+						the way in which the parts of something are arranged or laid out.
+					</p>
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/electron/001.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/electron/002.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/electron/003.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/electron/004.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" style="height: 700px" src="../../assets/layout/marketplace/001.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" style="height: 700px" src="../../assets/layout/marketplace/002.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" style="height: 700px" src="../../assets/layout/marketplace/003.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" style="height: 700px" src="../../assets/layout/marketplace/004.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" style="height: 700px" src="../../assets/layout/marketplace/005.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/marketplace-inner/001.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/marketplace-inner/002.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/marketplace-inner/003.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/marketplace-inner/004.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/catfinder/001.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/catfinder/002.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/catfinder/003.png" alt="">
+				</section>
+				<section data-transition="none-out">
+					<img class="reset-img" src="../../assets/layout/catfinder/004.png" alt="">
+				</section>
+				<section data-transition="none-out">
+						<img class="reset-img" src="../../assets/layout/catfinder/005.png" alt="">
+				</section>
+			</section>
+			<section>
+				<h2><a href="./../../exercises/#/2" target="_blank">Hands-On - exercise-2</a></h2>
+			</section>
+			<section>
+				<div style="display: flex; flex-direction: column; line-height: 140px; font-size: 80px;">
+					<a href="./../chapter-4">Next Chapter</a>
+					<a href="../">Back to Index</a>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<!-- <script src="../../revealjs/lib/js/head.min.js"></script>
+	<script src="../../revealjs/js/reveal.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		/*Reveal.initialize({
+			history: true,
+			dependencies: [
+				{ src: '../../revealjs/plugin/markdown/marked.js' },
+				{ src: '../../revealjs/plugin/markdown/markdown.js' },
+				{ src: '../../revealjs/plugin/notes/notes.js', async: true },
+				{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});*/
+		Reveal.initialize({
+			history: true,
+			dependencies: [
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js' },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.min.js' },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js', async: true },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>

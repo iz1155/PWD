@@ -1,0 +1,1435 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<!--<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+	<link rel="stylesheet" href="../../revealjs/css/theme/night.css"> -->
+	<!-- Theme used for syntax highlighting of code -->
+	<!--<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css"> -->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/night.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../../../revealjs/css/print/pdf.css' : '../../revealjs/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<style>
+		.tlv-loader {
+		  height: 48px;
+		  width: 48px;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  margin-top: -8px;
+		  margin-left: -8px;
+		}
+		.tlv-loader.small {
+		  transform: scale(0.5);
+		}
+		.tlv-loader.medium {
+		  transform: scale(0.8);
+		}
+		.tlv-loader.large {
+		  transform: scale(1);
+		}
+		.tlv-loader.center {
+			transform: translate(-50%, -50%);
+		}
+		.tlv-loader::before {
+		  background-color: #eaeaea;
+		  border-radius: 50%;
+		  box-shadow: 16px 16px 0px 0px #eaeaea, 0px 32px 0px 0px #eaeaea, -16px 16px 0px 0px #eaeaea;
+		  content: '';
+		  display: block;
+		  height: 16px;
+		  width: 16px;
+		  position: absolute;
+		  left: 50%;
+		  margin-left: -8px;
+		}
+		.tlv-loader::after {
+		  border-radius: 50%;
+		  content: '';
+		  display: block;
+		  position: absolute;
+		  height: 16px;
+		  width: 16px;
+		  animation: dot-move-2 3.5s infinite ease-in;
+		}
+		@keyframes dot-move {
+		  0% {
+			background-color: #3bb2df;
+			left: 16px;
+			top: 0;
+		  }
+		  25% {
+			background-color: #ffb81c;
+			left: 32px;
+			top: 16px;
+		  }
+		  50% {
+			background-color: #caa2dd;
+			left: 16px;
+			top: 32px;
+		  }
+		  75% {
+			background-color: #d9e51c;
+			left: 0;
+			top: 16px;
+		  }
+		  100% {
+			background-color: #3bb2df;
+			left: 16px;
+			top: 0;
+		  }
+		}
+		@keyframes dot-move-2 {
+		  0% {
+			background-color: #3bb2df;
+			left: 16px;
+			top: 0;
+		  }
+		  6.25% {
+			background-color: #3bb2df;
+			left: 32px;
+			top: 16px;
+		  }
+		  12.5% {
+			background-color: #3bb2df;
+			left: 16px;
+			top: 32px;
+		  }
+		  18.75% {
+			background-color: #3bb2df;
+			left: 0;
+			top: 16px;
+		  }
+		  25% {
+			background-color: #ffb81c;
+			left: 16px;
+			top: 0;
+		  }
+		  31.25% {
+			background-color: #ffb81c;
+			left: 32px;
+			top: 16px;
+		  }
+		  37.5% {
+			background-color: #ffb81c;
+			left: 16px;
+			top: 32px;
+		  }
+		  43.75% {
+			background-color: #ffb81c;
+			left: 0;
+			top: 16px;
+		  }
+		  50% {
+			background-color: #caa2dd;
+			left: 16px;
+			top: 0;
+		  }
+		  56.25% {
+			background-color: #caa2dd;
+			left: 32px;
+			top: 16px;
+		  }
+		  62.5% {
+			background-color: #caa2dd;
+			left: 16px;
+			top: 32px;
+		  }
+		  68.75% {
+			background-color: #caa2dd;
+			left: 0;
+			top: 16px;
+		  }
+		  75% {
+			background-color: #d9e51c;
+			left: 16px;
+			top: 0;
+		  }
+		  81.25% {
+			background-color: #d9e51c;
+			left: 32px;
+			top: 16px;
+		  }
+		  87.5% {
+			background-color: #d9e51c;
+			left: 16px;
+			top: 32px;
+		  }
+		  93.75% {
+			background-color: #d9e51c;
+			left: 0;
+			top: 16px;
+		  }
+		  100% {
+			background-color: #3bb2df;
+			left: 16px;
+			top: 0;
+		  }
+		}
+	</style>
+	<style>
+	<!-- https://codepen.io/matchboxhero/pen/oGVJXe?editors=1100 !-->
+	.tttttt{}
+	@font-face {
+	  font-family: 'Permanent Marker';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: local('Permanent Marker Regular'), local('PermanentMarker-Regular'), url(../../assets/permanent-marker.woff2) format('woff2');
+	  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	.container {
+	  position: absolute;
+	  top: 70px;
+	  left: 50%;
+	  transform: translateX(-50%);
+	}
+	.container svg {
+	  max-width: 45rem;
+	  width: 100%;
+	  height: auto;
+	  fill: none;
+	  stroke: white;
+	  stroke-width: 4;
+	}
+	.container svg tspan > tspan {
+	  stroke-dasharray: 1500;
+	  stroke-dashoffset: -1500;
+	}
+	.present .container svg tspan > tspan:nth-of-type(1) {
+	  animation: draw 800ms 350ms forwards;
+	}
+	.present .container svg tspan > tspan:nth-of-type(2) {
+	  animation: draw 800ms 700ms forwards;
+	}
+	.present .container svg tspan > tspan:nth-of-type(3) {
+	  animation: draw 800ms 1050ms forwards;
+	}
+	.present .container svg tspan > tspan:nth-of-type(4) {
+	  animation: draw 800ms 1400ms forwards;
+	}
+	.present .container svg tspan > tspan:nth-of-type(5) {
+	  animation: draw 800ms 1750ms forwards;
+	}
+	.present .container svg tspan > tspan:nth-of-type(6) {
+	  animation: draw 800ms 2100ms forwards;
+	}
+	.present .container svg tspan > tspan:nth-of-type(7) {
+	  animation: draw 800ms 2450ms forwards;
+	}
+	@keyframes draw {
+	  100% {
+		stroke-dashoffset: 0;
+	  }
+	}
+
+
+	</style>
+	<style>
+		.reset-img {
+			border: 0 !important;
+			background: none !important;
+			box-shadow: none !important;
+		}
+
+		#chapters {
+			margin: 0;
+			list-style-type: none;
+			display: grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 20% 20% 20% 20% 20%;
+			grid-auto-flow: column;
+			font-size: 34px;
+		}
+		
+		.slide-align-top-position {
+			top: 0!important;
+		}
+		.slide-align-top-position .present {
+			top: 0!important;
+		}
+		.specificity-examples table tbody tr td:not(:last-child) {
+			width: 300px;
+		}
+		.number-text-cell {
+			opacity: 0;
+			position: relative;
+		}
+		.number-text-cell .tlv-loader {
+			opacity: 0;
+		}
+		.number-text-cell .text-filling {
+			opacity: 0;
+		}
+		.numbers-tabel > .present .number-text-cell {
+			animation: opacity 1s forwards;
+		}
+		.numbers-tabel > .present .number-text-cell.ms-10 .tlv-loader {
+			animation: start-show-end-hide 10s forwards;
+		}
+		.numbers-tabel > .present .number-text-cell.ms-10 .text-filling {
+			animation: start-hide-end-show 10s forwards;
+		}
+		.numbers-tabel > .present .number-text-cell.ms-1 .tlv-loader {
+			animation: start-show-end-hide 1s forwards;
+		}
+		.numbers-tabel > .present .number-text-cell.ms-1 .text-filling {
+			animation: start-hide-end-show 1s forwards;
+		}
+		.numbers-tabel > .present .number-text-cell.ms-0_3-1 .tlv-loader {
+			animation: start-show-end-hide 0.65s forwards;
+		}
+		.numbers-tabel > .present .number-text-cell.ms-0_3-1 .text-filling {
+			animation: start-hide-end-show 0.65s forwards;
+		}
+		.numbers-tabel > .present .number-text-cell.ms-0_3 .tlv-loader {
+			animation: start-show-end-hide 0.3s forwards;
+		}
+		.numbers-tabel > .present .number-text-cell.ms-0_3 .text-filling {
+			animation: start-hide-end-show 0.3s forwards;
+		}
+		.numbers-tabel > .present .number-text-cell.ms-0_1 .tlv-loader {
+			animation: start-show-end-hide 0.1s forwards;
+		}
+		.numbers-tabel > .present .number-text-cell.ms-0_1 .text-filling {
+			animation: start-hide-end-show 0.3s forwards;
+		}
+		.boom-img {
+			background-image: url("../../assets/boom.jpg");
+			background-repeat: no-repeat;
+			background-size: auto;
+			position: fixed;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			height: 100vh;
+			width: 130%;
+			max-width: 100vw;
+			max-height: 100vh;
+		}
+		
+		@keyframes opacity {
+		  0%{
+			opacity: 0;
+		  }
+		  100%{
+			opacity: 1;
+		  }
+		}
+		
+		@keyframes start-show-end-hide {
+		  0%{
+			opacity: 1;
+		  }
+		  95%{
+			opacity: 1;
+		  }
+		  100%{
+			opacity: 0;
+		  }
+		}
+		
+		@keyframes start-hide-end-show {
+		  0%{
+			opacity: 0;
+		  }
+		  95%{
+			opacity: 0;
+		  }
+		  100%{
+			opacity: 1;
+		  }
+		}
+		
+		.instant-tabel {
+			width: 100%;
+		}
+		
+		.instant-tabel .instant-text {
+			width: 40%;
+			vertical-align: middle;
+			padding: 1em 0.5em;
+		}
+		
+		.instant-tabel .instant-filling {
+			width: 60%;
+			padding: 1em 0.5em;
+		}
+		
+		.instant-tabel .instant-filling > div {	
+			display: flex;
+			align-items: center;
+		}
+		
+		.instant-tabel .instant-filling img {	
+			margin-right: 20px;
+		}
+		
+		.instagram-container {
+			display: flex;
+			margin-top: -20px;
+			height: 500px;
+		}
+		
+		.instagram-step {
+			margin: 0;
+			flex: 1 1 auto;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+		
+		.instagram-step-1 {
+			background-image: url(../../assets/instagram/instagram-step1.png);
+		}
+		
+		.instagram-step-2 {
+			background-image: url(../../assets/instagram/instagram-step2.png);
+		}
+		
+		.instagram-step-3 {
+			background-image: url(../../assets/instagram/instagram-step3.png);
+		}
+		
+		.instagram-step-4 {
+			background-image: url(../../assets/instagram/instagram-step4.png);
+		}
+		
+		.instagram-step-note-position {
+			position: absolute;
+			top: 90%;
+			transform: translateX(-48%);
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.instagram-step-with-note-position {
+			position: relative;
+		}
+		
+		.da-pulse-steps-container {
+			display: flex;
+			height: 285px;
+		}
+		
+		.da-pulse-steps-container .da-pulse-step {
+			margin: 0 10px 0 0;
+			width: calc((100% - 50px) / 3);
+		}
+		
+		
+		.da-pulse-steps-container .da-pulse-step.focusout {
+			opacity: 0.5;
+		}
+		
+		.da-pulse-steps-container .da-pulse-step-1 {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(../../assets/daPulse-step1.png);
+		}
+		
+		.da-pulse-steps-container .da-pulse-step-2 {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(../../assets/daPulse-step2.png);
+		}
+		
+		.da-pulse-steps-container .da-pulse-step-3 {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(../../assets/daPulse-step3.png);
+		}
+		
+		.da-pulse > .present .da-pulse-steps-container .da-pulse-step-2-animation {
+			animation: da-pulse-start-step-2-animation 3s forwards;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(../../assets/daPulse-step2.png);
+		}
+		
+		
+		@keyframes da-pulse-start-step-2-animation {
+		  0%{
+			background-image: url(../../assets/daPulse-step2.png);
+		  }
+		  10%{
+			background-image: url(../../assets/daPulse-step2.png);
+		  }
+		  15%{
+			background-image: url(../../assets/daPulse-step2-a.png);
+		  }
+		  45%{
+			background-image: url(../../assets/daPulse-step2-a.png);
+		  }
+		  50%{
+			background-image: url(../../assets/daPulse-step2-ab.png);
+		  }
+		  80%{
+			background-image: url(../../assets/daPulse-step2-ab.png);
+		  }
+		  85%{
+			background-image: url(../../assets/daPulse-step2-abc.png);
+		  }
+		  100%{
+			background-image: url(../../assets/daPulse-step2-abc.png);
+		  }
+		}
+		
+		.da-pulse .tlv-loader {
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+		}
+		
+		.da-pulse .rest-success {
+			margin: 0;
+			height: 48px;
+			width: 48px;
+			position: absolute;
+			opacity: 0;
+		}
+		
+		.da-pulse .rest-container {
+			position: relative;
+			display: flex;
+			opacity: 0;
+			margin-bottom: 10px;
+		}
+		
+		.da-pulse > .present .tlv-loader {
+			animation: da-pulse-start-show-end-hide 4s forwards;
+		}
+		
+		.da-pulse > .present .rest-success {
+			animation: da-pulse-start-hide-end-show 4s forwards;
+		}
+		
+		.da-pulse > .present .rest1 {
+			animation: opacity 1s 0.2s forwards;
+		}
+		
+		.da-pulse > .present .rest1 .tlv-loader {
+			animation-delay: 0.2s;
+		}
+		
+		.da-pulse > .present .rest1 .rest-success {
+			animation-delay: 0.5s;
+		}
+		
+		.da-pulse > .present .rest2 {
+			animation: opacity 1s 1.2s forwards;
+		}
+		
+		.da-pulse > .present .rest2 .tlv-loader {
+			animation-delay: 1.2s;
+		}
+		
+		.da-pulse > .present .rest2 .rest-success {
+			animation-delay: 1.5s;
+		}
+		
+		.da-pulse > .present .rest3 {
+			animation: opacity 1s 2.2s forwards;
+		}
+		
+		.da-pulse > .present .rest3 .tlv-loader {
+			animation-delay: 2.2s;
+		}
+		
+		.da-pulse > .present .rest3 .rest-success {
+			animation-delay: 2.5s;
+		}
+		
+		@keyframes da-pulse-start-show-end-hide {
+		  0%{
+			opacity: 1;
+		  }
+		  50%{
+			opacity: 1;
+		  }
+		  100%{
+			opacity: 0;
+		  }
+		}
+		
+		@keyframes da-pulse-start-hide-end-show {
+		  0%{
+			opacity: 0;
+		  }
+		  50%{
+			opacity: 0;
+		  }
+		  100%{
+			opacity: 1;
+		  }
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<p style="height:450px;">Practical Web Development</p>
+				<h3>Optimistic Programing</h3>
+			</section>
+			<section class="slide-align-top-position numbers-tabel" data-transition="none-out">
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Let’s put it in numbers:</h3>
+					<table style="width: 100%;">
+							<tbody>
+								<tr>
+									<td style="width: 50%;">10,000ms</td>
+									<td style="width: 50%;"></td>
+								</tr>
+							</tbody>
+						</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Let’s put it in numbers:</h3>
+					<table style="width: 100%;">
+							<tbody>
+								<tr>
+									<td style="width: 50%;">10,000ms</td>
+									<td style="width: 50%;" class="number-text-cell ms-10">
+										<div class="center tlv-loader"></div>
+										<div class="text-filling">Doesn’t work?</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Let’s put it in numbers:</h3>
+					<table style="width: 100%;">
+							<tbody>
+								<tr>
+									<td style="width: 50%;">10,000ms</td>
+									<td style="width: 50%;">Doesn’t work?</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">1,000ms</td>
+									<td style="width: 50%;"></td>
+								</tr>
+							</tbody>
+						</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Let’s put it in numbers:</h3>
+					<table style="width: 100%;">
+							<tbody>
+								<tr>
+									<td style="width: 50%;">10,000ms</td>
+									<td style="width: 50%;">Doesn’t work?</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">1,000ms</td>
+									<td style="width: 50%;" class="number-text-cell ms-1">
+										<div class="center tlv-loader"></div>
+										<div class="text-filling">Likely mental context switch</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Let’s put it in numbers:</h3>
+					<table style="width: 100%;">
+							<tbody>
+								<tr>
+									<td style="width: 50%;">10,000ms</td>
+									<td style="width: 50%;">Doesn’t work?</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">1,000ms</td>
+									<td style="width: 50%;">Likely mental context switch</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">300-1000ms</td>
+									<td style="width: 50%;"></td>
+								</tr>
+							</tbody>
+						</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Let’s put it in numbers:</h3>
+					<table style="width: 100%;">
+							<tbody>
+								<tr>
+									<td style="width: 50%;">10,000ms</td>
+									<td style="width: 50%;">Doesn’t work?</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">1,000ms</td>
+									<td style="width: 50%;">Likely mental context switch</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">300-1000ms</td>
+									<td style="width: 50%;" class="number-text-cell ms-0_3-1">
+										<div class="center tlv-loader"></div>
+										<div class="text-filling">Machine is working</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Let’s put it in numbers:</h3>
+					<table style="width: 100%;">
+							<tbody>
+								<tr>
+									<td style="width: 50%;">10,000ms</td>
+									<td style="width: 50%;">Doesn’t work?</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">1,000ms</td>
+									<td style="width: 50%;">Likely mental context switch</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">300-1000ms</td>
+									<td style="width: 50%;">Machine is working</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">100-300ms</td>
+									<td style="width: 50%;"></td>
+								</tr>
+							</tbody>
+						</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Let’s put it in numbers:</h3>
+					<table style="width: 100%;">
+							<tbody>
+								<tr>
+									<td style="width: 50%;">10,000ms</td>
+									<td style="width: 50%;">Doesn’t work?</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">1,000ms</td>
+									<td style="width: 50%;">Likely mental context switch</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">300-1000ms</td>
+									<td style="width: 50%;">Machine is working</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">100-300ms</td>
+									<td style="width: 50%;" class="number-text-cell ms-0_3">
+										<div class="center tlv-loader"></div>
+										<div class="text-filling">Small perceptible delay</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Let’s put it in numbers:</h3>
+					<table style="width: 100%;">
+							<tbody>
+								<tr>
+									<td style="width: 50%;">10,000ms</td>
+									<td style="width: 50%;">Doesn’t work?</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">1,000ms</td>
+									<td style="width: 50%;">Likely mental context switch</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">300-1000ms</td>
+									<td style="width: 50%;">Machine is working</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">100-300ms</td>
+									<td style="width: 50%;">Small perceptible delay</td>
+								</tr>
+								<tr>
+									<td style="width: 50%;">0-100ms</td>
+									<td style="width: 50%;"></td>
+								</tr>
+							</tbody>
+						</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" data-autoslide="1"></section>
+			</section>
+			<section data-transition="none">
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/boom.jpg">
+				<div class="container">
+					<svg viewBox="0 0 618 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<g stroke="none" fill="none" fill-rule="evenodd" fill-opacity="0">
+							<text id="@WebDesignerMag" stroke="#fff" fill="#645F5A" font-weight="normal" font-family="PermanentMarker-Regular, Permanent Marker" font-size="144">
+								<tspan x="3" y="109">
+									<tspan>I</tspan><tspan>n</tspan><tspan>s</tspan><tspan>t</tspan><tspan>a</tspan><tspan>n</tspan><tspan>t</tspan></tspan>
+							</text>
+						</g>
+					</svg>
+				</div>
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/the-obvious-comic-karl-addison.jpg">
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/google-ex1.png">
+				</section>
+				<section data-transition="none-out">
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/google-ex2.png">
+				</section>
+				<section data-transition="none-out">
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/google-ex3.png">
+				</section>
+				<section data-transition="none-out">
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/google-ex4.png">
+				</section>
+				<section data-transition="none-out">
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/google-ex5.png">
+				</section>
+				<section data-transition="none-out">
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/google-ex6.png">
+				</section>
+				<section data-transition="none-out">
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/google-ex7.png">
+				</section>
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/business-card.jpg">
+			</section>
+			<section class="slide-align-top-position numbers-tabel" data-transition="none-out">
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Instant Speed = Addiction</h3>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Instant Speed = Addiction</h3>
+					<table class="instant-tabel">
+						<tbody>
+							<tr>
+								<td class="instant-text">Instant</td>
+								<td class="instant-filling">
+									<div>
+										<img class="reset-img" src="../../assets/instant-speed-emoji-1.png">
+										<span>I use it for everything</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Instant Speed = Addiction</h3>
+					<table class="instant-tabel">
+						<tbody>
+							<tr>
+								<td class="instant-text">Instant</td>
+								<td class="instant-filling">
+									<div>
+										<img class="reset-img" src="../../assets/instant-speed-emoji-1.png">
+										<span>I use it for everything</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="instant-text">Fast Enough</td>
+								<td class="instant-filling">
+									<div>
+										<img class="reset-img" src="../../assets/instant-speed-emoji-2.png">
+										<span>I use it because it solves a pain</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<h3>Instant Speed = Addiction</h3>
+					<table class="instant-tabel">
+						<tbody>
+							<tr>
+								<td class="instant-text">Instant</td>
+								<td class="instant-filling">
+									<div>
+										<img class="reset-img" src="../../assets/instant-speed-emoji-1.png">
+										<span>I use it for everything</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="instant-text">Fast Enough</td>
+								<td class="instant-filling">
+									<div>
+										<img class="reset-img" src="../../assets/instant-speed-emoji-2.png">
+										<span>I use it because it solves a pain</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="instant-text">Not Fast Enough</td>
+								<td class="instant-filling">
+									<div>
+										<img class="reset-img" src="../../assets/instant-speed-emoji-3.png">
+										<span>Damn them for making me use this shi#$%#</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/man-leading.jpg">
+			</section>
+			<section data-autoslide="3000">
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/lets-party.jpg">
+			</section>
+			<section>
+				<h2>Initial App Loading</h2>
+			</section>
+			<section class="slide-align-top-position">
+				<h3>SSR (Server Side Rendering)</h3>
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/server-side-rendering-white.png">
+			</section>
+			<section class="slide-align-top-position">
+				<section data-transition="none-out" class="slide-align-top-position">
+					<h3>SPA (Single Page Application)</h3>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/single-page-application-white.png">
+				</section>
+				<section data-transition="none-out" class="slide-align-top-position">
+					<h3>SPA (Single Page Application)</h3>
+					<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/single-page-application-data-white.png">
+				</section>
+			</section>
+			<section class="slide-align-top-position">
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/server-vs-client.png">
+			</section>
+			<section>
+				<h2>Rendering Strategies</h2>
+			</section>
+			<section>
+				<video height="660" loop muted controls>
+				  <source src="../../assets/shell.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section>
+				<video height="660" loop muted controls>
+				  <source src="../../assets/hydrate.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section>
+				<video height="660" loop muted controls>
+				  <source src="../../assets/re-render.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section>
+				<video style="transform: scale(1.15);" height="660" loop muted controls>
+				  <source src="../../assets/facebook-shell.mov" type="video/mp4"/>
+				</video>
+			</section>
+			<section>
+				<video style="transform: scale(1.3);" height="660" loop muted controls>
+				  <source src="../../assets/facebook-spinner.mov" type="video/mp4"/>
+				</video>
+			</section>
+			<section data-autoslide="2000">
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/next.jpg">
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/lots-data.jpg">
+			</section>
+			<section>
+				<video style="transform: scale(1.3);" height="660" loop muted controls>
+				  <source src="../../assets/virtual-scroll.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/performance-benchmark-before.png">
+				</section>
+				<section data-transition="none-out">
+					<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/performance-benchmark-after.png">
+				</section>
+			</section>
+			<section>
+				<h2><a href="./../../exercises/#/6" target="_blank">Hands-On - exercise-6</a></h2>
+			</section>
+			<section data-autoslide="2000">
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/next.jpg">
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<h3 style="margin: 0;">Instagram Example</h3>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step"></div>
+						<div class="instagram-step"></div>
+						<div class="instagram-step"></div>
+					</div>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step instagram-step-2"></div>
+						<div class="instagram-step"></div>
+						<div class="instagram-step"></div>
+					</div>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step instagram-step-2"></div>
+						<div class="instagram-step instagram-step-3"></div>
+						<div class="instagram-step"></div>
+					</div>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step instagram-step-2"></div>
+						<div class="instagram-step instagram-step-3"></div>
+						<div class="instagram-step instagram-step-4"></div>
+					</div>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step instagram-step-2"></div>
+						<div class="instagram-step instagram-step-3"></div>
+						<div class="instagram-step instagram-step-4 instagram-step-with-note-position">
+							<div class="instagram-step-note-position">
+								<img style=" margin: 0; height: 70px;" class="reset-img" src="../../assets/up-arrow.svg">
+								<span style="font-size: 25px;">Most apps start uploading here</span>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<div class="instagram-container">
+						<div class="instagram-step instagram-step-1"></div>
+						<div class="instagram-step instagram-step-2 instagram-step-with-note-position">
+							<div class="instagram-step-note-position">
+								<img style=" margin: 0; height: 70px;" class="reset-img" src="../../assets/up-arrow.svg">
+								<span style="font-size: 25px;">Instagram starts uploading here</span>
+							</div>
+						</div>
+						<div class="instagram-step instagram-step-3"></div>
+						<div class="instagram-step instagram-step-4 instagram-step-with-note-position">
+							<div class="instagram-step-note-position">
+								<img style=" margin: 0; height: 70px;" class="reset-img" src="../../assets/up-arrow.svg">
+								<span style="font-size: 25px;">Most apps start uploading here</span>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<h3>Facebook Example</h3>
+				</section>
+				<section data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/facebook-instant.mov" type="video/mp4"/>
+					</video>
+				</section>
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<h3>WhatApp Example</h3>
+				</section>
+				<section data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/whatapp-sending.mp4" type="video/mp4"/>
+					</video>
+				</section>
+				<section data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/whatapp-no-internet.mp4" type="video/mp4"/>
+					</video>
+				</section>
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<h3>Predict Example</h3>
+				</section>
+				<section data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/typeahead.mov" type="video/mp4"/>
+					</video>
+				</section>
+			</section>
+			<section class="slide-align-top-position">
+				<h4 style="margin: 0;" ><a href="https://blog.teamtreehouse.com/perceived-performance" target="_blank">Perceived Performance</a></h4>
+				<img style="height: 590px;" class="reset-img" src="../../assets/loading-animation-demo.gif">
+			</section>
+			<section data-autoslide="2000">
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/next.jpg">
+			</section><section>
+				<section>
+					<h3>Don’t wait for success. Operate</h3>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" >
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">// Make AJAX request to create post for user
+$.ajax('/user/post', {
+	type: 'POST',
+	data: { from_date: this.from_date },
+	dataType: 'json',
+	success: function(data) {
+		// Render new post in the UI
+		... ... ...
+		... ...
+	},
+	error: function(data) {
+		// Notify the user on error
+		...
+		...
+	}
+});
+						</code>
+					</pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" >
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">// Make AJAX request to create post for user
+$.ajax('/user/post', {
+	type: 'POST',
+	data: { from_date: this.from_date },
+	dataType: 'json',
+	success: function(data) {
+		
+		
+		
+	},
+	error: function(data) {
+		// Notify the user on error
+		...
+		...
+	}
+});
+						</code>
+					</pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" >
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">// Make AJAX request to create post for user
+$.ajax('/user/post', {
+	type: 'POST',
+	data: { from_date: this.from_date },
+	dataType: 'json',
+	success: function(data) {},
+	error: function(data) {
+		// Notify the user on error
+		...
+		...
+	}
+});
+						</code>
+					</pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" >
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;">// Render new post in the UI
+... ... ...
+... ...
+
+// Make AJAX request to create post for user
+$.ajax('/user/post', {
+	type: 'POST',
+	data: { from_date: this.from_date },
+	dataType: 'json',
+	success: function(data) {},
+	error: function(data) {
+		// Notify the user on error
+		...
+		...
+	}
+});
+						</code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<h3>Order Flow</h3>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<video height="600" muted controls>
+						<source src="../../assets/payment-flow-wait-for-transaction-completion.mp4" type="video/mp4"/>
+					</video>
+				</section>
+				<section data-transition="none-out">
+					<h4>What is the issue?</h4>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<video height="600" muted controls>
+						<source src="../../assets/payment-flow-dont-wait-for-transaction-completion.mp4" type="video/mp4"/>
+					</video>
+				</section>
+			</section>
+			<section class="da-pulse">
+				<section data-transition="none-out">
+					<h3>daPulse Signup Example</h3>
+				</section>
+				<section data-transition="none-out">
+					<div class="da-pulse-steps-container">
+						<div class="da-pulse-step da-pulse-step-1"></div>
+						<div class="da-pulse-step"></div>
+						<div class="da-pulse-step"></div>
+					</div>
+				</section>
+				<section data-transition="none-out">
+					<div class="da-pulse-steps-container">
+						<div class="da-pulse-step da-pulse-step-1"></div>
+						<div class="da-pulse-step da-pulse-step-2"></div>
+						<div class="da-pulse-step"></div>
+					</div>
+				</section>
+				<section data-transition="none-out">
+					<div class="da-pulse-steps-container">
+						<div class="da-pulse-step da-pulse-step-1"></div>
+						<div class="da-pulse-step da-pulse-step-2"></div>
+						<div class="da-pulse-step da-pulse-step-3"></div>
+					</div>
+				</section>
+				<section data-transition="none-out">
+					<div class="da-pulse-steps-container">
+						<div class="da-pulse-step da-pulse-step-1 focusout"></div>
+						<div class="da-pulse-step da-pulse-step-2"></div>
+						<div class="da-pulse-step da-pulse-step-3 focusout"></div>
+					</div>
+				</section>
+				<section data-transition="none-out">
+					<div style="position: relative;">
+						<div style="position: absolute; top: auto; bottom: 100%; left: 0;">
+							<div class="rest-container rest3">
+								<div class="tlv-loader"></div>
+								<img class="rest-success reset-img" src="../../assets/check-solid.svg">
+								<div style="margin-left: 70px;">[GET]  check-sub-domain/abc</div>
+							</div>
+							<div class="rest-container rest2">
+								<div class="tlv-loader"></div>
+								<img class="rest-success reset-img" src="../../assets/check-solid.svg">
+								<div style="margin-left: 70px;">[GET]  check-sub-domain/ab</div>
+							</div>
+							<div class="rest-container rest1">
+								<div class="tlv-loader"></div>
+								<img class="rest-success reset-img" src="../../assets/check-solid.svg">
+								<div style="margin-left: 70px;">[GET]  check-sub-domain/a</div>
+							</div>
+						</div>
+						<div class="da-pulse-steps-container">
+							<div class="da-pulse-step da-pulse-step-1 focusout"></div>
+							<div class="da-pulse-step da-pulse-step-2-animation"></div>
+							<div class="da-pulse-step da-pulse-step-3 focusout"></div>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section data-transition="none-out">
+					<h3><a href="http://www.turnjs.com" target="_blank">turn.js Example</a></h3>
+				</section>
+				<section data-transition="none-out">
+					<video height="600" loop muted controls>
+						<source src="../../assets/turnjs.mp4" type="video/mp4"/>
+					</video>
+				</section>
+			</section>
+			<section>
+				<h3>The fastest request is “no request”</h3>
+			</section>
+			<section>
+				<h2><a href="./../../exercises/#/7" target="_blank">Hands-On - exercise-7</a></h2>
+			</section>
+			<section data-autoslide="2000">
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/next.jpg">
+			</section>
+			<section>
+				<h3 style="margin: 0;">Iframe</h3>
+			</section>
+			<section>
+				<pre style="height: 100%; width: 100%; margin: 0;">
+					<code class="language-html" style="max-height: 100%; padding: 20px;" data-trim><iframe src="URL" height="200" width="300"></iframe>
+
+<iframe src="my-source.html" class="same-origin"></iframe>
+
+<iframe src="https://www.google.com" class="other-origin"></iframe>
+					</code>
+				</pre>
+			</section>
+			<section class="slide-align-top-position">
+				<section>
+					<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/communication.jpg">
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out" >
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><iframe src="URL" height="200" width="300"></iframe>
+
+<iframe src="my-source.html" class="same-origin"></iframe>
+
+<iframe src="https://www.google.com" class="other-origin"></iframe>
+
+
+
+
+
+
+
+
+						</code>
+					</pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;"><iframe src="URL" height="200" width="300"></iframe>
+
+<iframe src="my-source.html" class="same-origin"></iframe>
+
+<iframe src="https://www.google.com" class="other-origin"></iframe>
+
+<script>
+	const sameOriginIframe = document.querySelector('.same-origin');
+	sameOriginIframe.contentDocument.body.append('Hey there!');
+
+
+
+
+</script></code></pre>
+				</section>
+				<section class="slide-align-top-position" data-transition="none-out">
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-html" style="max-height: 100%; padding: 20px;" data-trim ><iframe src="URL" height="200" width="300"></iframe>
+
+<iframe src="my-source.html" class="same-origin"></iframe>
+
+<iframe src="https://www.google.com" class="other-origin"></iframe>
+
+<script>
+	const sameOriginIframe = document.querySelector('.same-origin');
+	sameOriginIframe.contentDocument.body.append('Hey there!');
+
+	const otherOriginIframe = document.querySelector('.other-origin');
+	otherOriginIframe.contentDocument.body.append('Hey there!');
+	// SECURITY ERROR!
+</script></code></pre>
+				</section>
+				<section class="slide-align-top-position">
+					<h4>Same Origin Iframe</h4>
+					<pre style="height: 100%; width: 100%; margin: 0;">
+						<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim data-noescape><mark style="background: rgb(100, 100, 100); color: inherit;">window.parent</mark>.dispatchEvent( /*...*/ );</code></pre>
+				</section>
+			</section>
+			<section class="slide-align-top-position" data-transition="none-out">
+				<h4 style="margin: 0;">Ebay Payment via PayPal</h4>
+				<video height="600" muted controls>
+					<source src="../../assets/ebay-via-paypal-order.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section class="slide-align-top-position" data-transition="none-out">
+				<h4 style="margin: 0;">Vendor Payment via Iframe</h4>
+				<video height="600" muted controls>
+					<source src="../../assets/iframe-base.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section class="slide-align-top-position" data-transition="none-out">
+				<h4 style="margin: 0;">Vendor Payment via Iframe - Old Behavior</h4>
+				<video height="600" muted controls>
+					<source src="../../assets/iframe-old-behavior.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section>
+				<h3 style="margin: 0;">What is the issue?</h3>
+			</section>
+			<section class="slide-align-top-position" data-transition="none-out">
+				<h4 style="margin: 0;">Vendor Payment via Iframe - New Behavior</h4>
+				<video height="600" muted controls>
+					<source src="../../assets/iframe-new-behavior.mp4" type="video/mp4"/>
+				</video>
+			</section>
+			<section data-autoslide="2000">
+				<img style="display: inline-block; margin: 0; height: 660px;" class="reset-img" src="../../assets/next.jpg">
+			</section>
+			<section class="slide-align-top-position">
+				<img style="height: 600px;" class="reset-img" src="../../assets/event-tabel.jpg">
+			</section>
+			<section class="slide-align-top-position" style="padding: 0;">
+				<pre style="height: 100%; width: 100%; margin: 0;">
+					<code class="language-ts" style="max-height: 100%; padding: 20px;" data-trim >@Directive({ selector: '[clickOutside]' })
+export class ClickOutsideDirective implements OnChanges, OnDestroy {
+  @Input() isActive: boolean;
+  // ...
+  ngOnChanges(changes: SimpleChanges): void {
+	const isActive = changes.isActive.currentValue;
+	if (isActive) {
+	  this.startClickListening();
+	} else if (isActive !== undefined) {
+	  this.stopClickListening();
+	}
+  }
+  private startClickListening() {
+    document.body.addEventListener('click', this.onClickBody);
+  }
+  private stopClickListening() {
+    document.body.removeEventListener('click', this.onClickBody);
+  }
+  ngOnDestroy(): void {
+    this.stopClickListening();
+  }
+  // ...
+}
+
+</code></pre>
+			</section>
+			<section>
+				<div style="display: flex; flex-direction: column; line-height: 140px; font-size: 80px;">
+					<a href="./../chapter-6">Next Chapter</a>
+					<a href="../">Back to Index</a>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<!-- <script src="../../revealjs/lib/js/head.min.js"></script>
+	<script src="../../revealjs/js/reveal.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		/*Reveal.initialize({
+			history: true,
+			dependencies: [
+				{ src: '../../revealjs/plugin/markdown/marked.js' },
+				{ src: '../../revealjs/plugin/markdown/markdown.js' },
+				{ src: '../../revealjs/plugin/notes/notes.js', async: true },
+				{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});*/
+		Reveal.initialize({
+			history: true,
+			dependencies: [
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js' },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.min.js' },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js', async: true },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>

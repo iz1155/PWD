@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<!--<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+	<link rel="stylesheet" href="../../revealjs/css/theme/night.css"> -->
+	<!-- Theme used for syntax highlighting of code -->
+	<!--<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css"> -->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/night.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../../../revealjs/css/print/pdf.css' : '../../revealjs/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<style>
+		.reset-img {
+		  border: 0 !important;
+		  background: none !important;
+		  box-shadow: none !important;
+		}
+        #chapters {
+            margin: 0;
+			list-style-type: none;
+			display: flex;
+			font-size: 45px;
+			flex-direction: column;
+        }
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+            <section>
+                <ul id="chapters">
+                    <li><a href="presentations">Presentations</a></li>
+                    <li style="margin-top: 40px;"><a href="exercises">Exercises</a></li>
+                </ul>
+                <i style="margin: 60px 0; float: left; font-size: 22px; text-align: left">By Dan Nahari & Ivan Zelenovsky</i>
+            </section>
+        </div>
+	</div>
+
+	<!-- <script src="../../revealjs/lib/js/head.min.js"></script>
+	<script src="../../revealjs/js/reveal.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		/*Reveal.initialize({
+			history: true,
+			dependencies: [
+				{ src: '../../revealjs/plugin/markdown/marked.js' },
+				{ src: '../../revealjs/plugin/markdown/markdown.js' },
+				{ src: '../../revealjs/plugin/notes/notes.js', async: true },
+				{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});*/
+		Reveal.initialize({
+			history: true,
+			dependencies: [
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js' },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.min.js' },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js', async: true },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>

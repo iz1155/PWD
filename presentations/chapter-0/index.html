@@ -1,0 +1,414 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<!--<link rel="stylesheet" href="../../revealjs/css/reveal.css">
+	<link rel="stylesheet" href="../../revealjs/css/theme/night.css"> -->
+	<!-- Theme used for syntax highlighting of code -->
+	<!--<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css"> -->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/night.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../../../revealjs/css/print/pdf.css' : '../../revealjs/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<style>
+		.reset-img {
+			border: 0 !important;
+			background: none !important;
+			box-shadow: none !important;
+		}
+
+		#chapters {
+			margin: 0;
+			list-style-type: none;
+			display: grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 20% 20% 20% 20% 20%;
+			grid-auto-flow: column;
+			font-size: 34px;
+		}
+		
+		.slide-top {
+			top: 0 !important;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<p style="height:450px;">Practical Web Development</p>
+				<h3>Introduction</h3>
+			</section>
+			<section>
+				<h3>Chapters</h3>
+				<ul id="chapters">
+					<li>Chapter 0: Introduction</li>
+                    <li>Chapter 1: JS OOP & more</li>
+                    <li>Chapter 2: CSS, how does it work</li>
+                    <li>Chapter 3: Transition to SPA</li>
+                    <li>Chapter 4: Components Base Development</li>
+                    <li>Chapter 5: Optimistic Programming</li>
+                    <li>Chapter 6: Responsive web design</li>
+                    <li>Chapter 7: Web App Optimization</li>
+				</ul>
+			</section>
+			<section>
+				<h2 style="display: inline-block;">ECMAScript History and Future</h3>
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0;" class="reset-img" width="70px" src="../../assets/javascript-logo.png">
+				<h3 style="display: inline-block;">JavaScript</h3>
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/ecma.jpg">
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/ecmascript.png">
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0;" class="reset-img" src="../../assets/ecmascript-evolution.png">
+			</section>
+			<section data-transition="slide-in none-out">
+				<h3 style="text-align: left">ES6</h3>
+			</section>
+			<section data-transition="none-in none-out">
+				<h3 style="text-align: left">ES2015</h3>
+			</section>
+			<section data-transition="none-in none-out">
+				<h3 style="text-align: left">ES2015 ► ES2016 </h3>
+			</section>
+			<section data-transition="none-in none-out">
+				<h3 style="text-align: left">ES2015 ► ES2016 ► ES2017</h3>
+			</section>
+			<section data-transition="none-in none-out">
+				<h3 style="text-align: left">ES2015 ► ES2016 ► ES2017 ► ES2018</h3>
+			</section>
+			<section data-transition="none-in none-out">
+				<h3 style="text-align: left">ES2015 ► ES2016 ► ES2017 ► ES2018 ► ES.Next</h3>
+			</section>
+			<section>
+				<img class="reset-img" src="../../assets/js-tc39-es.png">
+			</section>
+			<section>
+				<img class="reset-img" src="../../assets/tc39-approval-flow.png">
+			</section>
+			<section>
+				<h3>We have a Problem</h3>
+			</section>
+			<section>
+				<h3>Example</h3>
+				<pre style="width:950px;">
+					<code class="language-javascript" style="padding: 20px;" data-trim>[1, 2, 3].map((n) => n + 1);</code></pre>
+			</section>
+			<section>
+				<img class="reset-img" width="500px" src="../../assets/babel.svg">
+			</section>
+			<section data-transition="none-out">
+				<pre style="width:950px;">
+					<code class="language-javascript" style="padding: 20px;" data-trim>[1, 2, 3].map((n) => n + 1);</code></pre>
+			</section>
+			<section data-transition="none-in">
+				<pre style="width:950px;">
+					<code class="language-javascript" style="padding: 20px;" data-trim>[1, 2, 3].map(function(n) { return n + 1 });</code></pre>
+			</section>
+			<section>
+				<h3>ES* feature is supported in what browser?</h3>
+			</section>
+			<section>
+				<section>
+					<h3>Compatibility Table</h3>
+					<p>http://kangax.github.io/compat-table/es6/</p>
+					<iframe width="100%" height="500px" src="http://kangax.github.io/compat-table/es6/#test-arrow_functions"></iframe>
+				</section>
+				<section>
+					<h3>Compatibility Table</h3>
+					<p>http://kangax.github.io/compat-table/es6/</p>
+					<img class="reset-img" width="100%" height="500px" src="../../assets/compatibility-table-arrow-function.png" />
+				</section>
+			</section>
+			<section>
+				<img style="display: inline-block; margin: 0;" class="reset-img" width="70px" src="../../assets/ts-logo.png">
+				<h3 style="display: inline-block;">Typescript</h3>
+				<h4 style=" font-size: 0.85em; text-align: start;">
+					TypeScript is a typed superset of JavaScript that compiles to plain JavaScript (It’s a bit like what SCSS is for CSS.)
+				</h4>
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 26px; margin: auto; margin-top: 60px;">
+					<ul>
+						<li>Created by Microsoft</li>
+						<li>Open source language, developed in public at
+							<a href="https://github.com/Microsoft/TypeScript" target="_blank">TypeScript Git</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h3 style="display: inline-block;">Why Typescript?</h3>
+			</section>
+			<section data-transition="none-out">
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul>
+						<li>Provide an optional type system for JavaScript </li>
+						<li style="visibility: hidden;">Provide planned features from future JavaScript editions to current JavaScript engines</li>
+					</ul>
+				</div>
+			</section>
+			<section data-transition="none-in">
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul>
+						<li>Provide an optional type system for JavaScript </li>
+						<li>Provide planned features from future JavaScript editions to current JavaScript engines</li>
+					</ul>
+				</div>
+			</section>
+			<section data-transition="none-out">
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul>
+						<li>IDE auto completion</li>
+						<li style="visibility: hidden;">Object-oriented</li>
+						<li style="visibility: hidden;">AOT compilation</li>
+						<li style="visibility: hidden;">Types are documentation</li>
+						<li style="visibility: hidden;">Not locked in</li>
+						<li style="visibility: hidden;">Ability to choose ECMAScript version</li>
+					</ul>
+				</div>
+			</section>
+			<section data-transition="none-out none-in">
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul>
+						<li>IDE auto completion</li>
+						<li>Object-oriented</li>
+						<li style="visibility: hidden;">AOT compilation</li>
+						<li style="visibility: hidden;">Types are documentation</li>
+						<li style="visibility: hidden;">Not locked in</li>
+						<li style="visibility: hidden;">Ability to choose ECMAScript version</li>
+					</ul>
+				</div>
+			</section>
+			<section data-transition="none-out none-in">
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul>
+						<li>IDE auto completion</li>
+						<li>Object-oriented</li>
+						<li>AOT compilation</li>
+						<li style="visibility: hidden;">Types are documentation</li>
+						<li style="visibility: hidden;">Not locked in</li>
+						<li style="visibility: hidden;">Ability to choose ECMAScript version</li>
+					</ul>
+				</div>
+			</section>
+			<section data-transition="none-out none-in">
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul>
+						<li>IDE auto completion</li>
+						<li>Object-oriented</li>
+						<li>AOT compilation</li>
+						<li>Types are documentation</li>
+						<li style="visibility: hidden;">Not locked in</li>
+						<li style="visibility: hidden;">Ability to choose ECMAScript version</li>
+					</ul>
+				</div>
+			</section>
+			<section data-transition="none-out none-in">
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul>
+						<li>IDE auto completion</li>
+						<li>Object-oriented</li>
+						<li>AOT compilation</li>
+						<li>Types are documentation</li>
+						<li>Not locked in</li>
+						<li style="visibility: hidden;">Ability to choose ECMAScript version</li>
+					</ul>
+				</div>
+			</section>
+			<section data-transition="none-out none-in">
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul>
+						<li>IDE auto completion</li>
+						<li>Object-oriented</li>
+						<li>AOT compilation</li>
+						<li>Types are documentation</li>
+						<li>Not locked in</li>
+						<li>Ability to choose ECMAScript version</li>
+					</ul>
+				</div>
+			</section>
+			<section data-transition="slide-in none-out">
+				<div style="display:inline-block;">
+					<img class="reset-img" height="100" src="../../assets/angular.svg" />
+					<img class="reset-img" height="100" src="../../assets/nest-js.svg" />
+					<img class="reset-img" height="100" src="../../assets/vue-js.svg" />
+					<img class="reset-img" height="100" src="../../assets/react.svg" />
+				</div>
+			</section>
+			<section>
+				<section>
+					<h3><a href="https://2018.stateofjs.com/javascript-flavors/overview/" target="_blank">The State of JavaScript 2018 Survey</a></h3>
+					<iframe width="100%" height="500px" src="https://2018.stateofjs.com/javascript-flavors/overview/"></iframe>
+				</section>
+				<section>
+					<h3><a href="https://2018.stateofjs.com/javascript-flavors/overview/" target="_blank">The State of JavaScript 2018 Survey</a></h3>
+					<img class="reset-img" width="100%" height="500px" src="../../assets/js-survey.png" />
+				</section>
+			</section>
+			<section style="filter: invert(1);">
+				<img class="reset-img" width="500px" src="../../assets/dts.svg">
+			</section>
+			<section>
+				<h5>Example</h5>
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul style="width: 100%;">
+						<li><pre style="font-size: 1em; width: 100%;"><code class="language-bash" style="padding: 20px;" data-trim>yarn add lodash</code></pre></li>
+						<li><pre style="font-size: 1em; width: 100%;"><code class="language-bash" style="padding: 20px;" data-trim>yarn add -D @types/lodash</code></pre></li>
+						<li><pre style="font-size: 1em; width: 100%;" class="language-javascript" data-trim><code  style="max-height:300px; padding: 20px;">import * as _ from 'lodash';
+_.padStart("Hello TypeScript!", 20, " ");</code></pre></li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<img class="reset-img" src="../../assets/lodash-autocomplition.png">
+			</section>
+			<section>
+				<img class="reset-img" width="500px" src="../../assets/es-ts.png">
+			</section>
+			<section>
+				<div>
+					<img class="reset-img" height="500" src="../../assets/webpack.svg" />
+				</div>
+			</section>
+			<section>
+				<div>
+					<img class="reset-img" src="../../assets/webpack.gif" />
+				</div>
+			</section>
+			<section>
+				<section>
+					<h3><a href="https://trends.google.com/trends/explore?q=%2Fg%2F11clg_kyfc,grunt,gulp" target="_blank">Grunt vs Gulp vs Webpack</a></h3>
+					<iframe width="100%" height="500px" src="https://trends.google.com/trends/explore?q=%2Fg%2F11clg_kyfc,grunt,gulp"></iframe>
+				</section>
+				<section>
+					<h3><a href="https://trends.google.com/trends/explore?q=%2Fg%2F11clg_kyfc,grunt,gulp" target="_blank">Grunt vs Gulp vs Webpack</a></h3>
+					<img class="reset-img" width="100%" src="../../assets/webpack-trend.png" />
+				</section>
+			</section>
+			<section>
+				<img class="reset-img" width="500px" src="../../assets/evergreen-browsers.png">
+			</section>
+			<section>
+				<div>
+					<img class="reset-img" height="500" src="../../assets/npm.svg" />
+				</div>
+			</section>
+			<section>
+				<div style="display:inline-block;">
+					<img class="reset-img" height="100" src="../../assets/npm.svg" />
+					<span style="font-size: 4rem; margin: 0 2rem;"> vs </span>
+					<img class="reset-img" height="100" src="../../assets/yarn.svg" />
+				</div>
+			</section>
+			<section>
+				<div>
+					<img class="reset-img" height="500" src="../../assets/lock.svg" />
+				</div>
+			</section>
+			<section>
+				<section>
+					<div>
+						<img class="reset-img" height="500" src="../../assets/link.svg" />
+					</div>
+				</section>
+				<section>
+					<div>
+						<img class="reset-img" height="500" src="../../assets/yarn-link-1.png" />
+					</div>
+				</section>
+				<section>
+					<div>
+						<img class="reset-img" height="500" src="../../assets/yarn-link-2.png" />
+					</div>
+				</section>
+			</section>
+			<!--<section class="slide-top" style="height: calc(100% - 120px);">
+				<pre style="font-size: 1em; width: 100%;height: 100%;"><code class="language-bash" style="max-height: 100%;padding: 20px;font-size: 1.2rem;line-height: 1;" data-trim data-noescape>> npm install -g @vue/cli
+> vue create cat-finder
+
+? Please pick a preset:
+	<mark>Manually select features</mark>
+? Check the features needed for your project:
+	<mark>Babel, TS, PWA, Router, Vuex, CSS Pre-processors, Linter, Unit</mark>
+? Use class-style component syntax?
+	<mark>Yes</mark>
+? Use Babel alongside TypeScript for auto-detected polyfills?
+	<mark>Yes</mark>
+? Use history mode for router? (Requires proper server setup for index fallback in production)
+	<mark>Yes</mark>
+? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default):
+	<mark>Less</mark>
+? Pick a linter / formatter config:
+	<mark>TSLint</mark>
+? Pick additional lint features:
+	<mark>Lint and fix on commit</mark>
+? Pick a unit testing solution:
+	<mark>Jest</mark>
+? Where do you prefer placing config for Babel, PostCSS, ESLint, etc.?
+	<mark>In dedicated config files</mark>
+? Save this as a preset for future projects?
+	<mark>No</mark>
+? Pick the package manager to use when installing dependencies:
+	<mark>Yarn</mark>
+</code>
+			</section>-->
+			<section>
+				<div style="display: flex; flex-direction: column; line-height: 140px; font-size: 80px;">
+					<a href="./../chapter-1">Next Chapter</a>
+					<a href="../">Back to Index</a>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<!-- <script src="../../revealjs/lib/js/head.min.js"></script>
+	<script src="../../revealjs/js/reveal.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		/*Reveal.initialize({
+			history: true,
+			dependencies: [
+				{ src: '../../revealjs/plugin/markdown/marked.js' },
+				{ src: '../../revealjs/plugin/markdown/markdown.js' },
+				{ src: '../../revealjs/plugin/notes/notes.js', async: true },
+				{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});*/
+		Reveal.initialize({
+			history: true,
+			dependencies: [
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js' },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.min.js' },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js', async: true },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
