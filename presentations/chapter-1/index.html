@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../../revealjs/css/theme/night.css"> -->
 	<!-- Theme used for syntax highlighting of code -->
 	<!--<link rel="stylesheet" href="../../revealjs/lib/css/zenburn.css"> -->
-	
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/night.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css">
@@ -53,7 +53,7 @@
 			grid-auto-flow: column;
 			font-size: 34px;
 		}
-		
+
 		.slide-top {
 			top: 0 !important;
 		}
@@ -170,7 +170,7 @@ typeof null // "object"
 						<li class="fragment"><b>NaN</b> "Not-a-Number" value - indicates that a value is not a legal number</li>
 					</ul>
 				</div>
-				<div class="fragment">'false', [], {} are truthy value</div> 
+				<div class="fragment">'false', [], {} are truthy value</div>
 			</section>
 			<section>
 				<section>
@@ -384,7 +384,7 @@ if (x > 1) {
 	int y = 7;
 };
 
-// Will produce error 
+// Will produce error
 System.out.println(y);
 </code></pre>
 				</section>
@@ -396,7 +396,7 @@ if (x > 1) {
 	var y = 7;
 };
 
-console.log(y); // Will print 7 
+console.log(y); // Will print 7
 </code></pre>
 				</section>
 				<section data-transition="none-in">
@@ -407,7 +407,7 @@ if (x > 1) {
 	var y = 7;
 };
 
-console.log(<mark>window</mark>.y); // Will print 7 
+console.log(<mark>window</mark>.y); // Will print 7
 </code></pre>
 				</section>
 				<section>
@@ -488,13 +488,13 @@ console.log('x2 = ', x);
 
 function f() {
   var x = 8;
-  
+
   function g() {
     var x = 11;
     console.log('x1 = ', x);
   }
   g();
-  
+
   console.log('x2 = ', x);
 }
 f();
@@ -510,13 +510,13 @@ console.log('x3 = ', x);
 
 function f() {
   var x = 8;
-  
+
   function g() {
     var x = 11;
     console.log('x1 = ', x);
   }
   g();
-  
+
   console.log('x2 = ', x);
 }
 f();
@@ -554,10 +554,10 @@ console.log(carName); // ReferenceError: carName is not defined</code></pre>
 	var b = 10;
 
 	function inner() {
-		var a = 20; 
+		var a = 20;
 		console.log(a + b); // 30
 	}
-	
+
 	return inner;
 }
 
@@ -1159,7 +1159,7 @@ console.log(car);
 	created_at: '2017-01-05',
 	car: {
 		type: 'Fiat',
-		model: '500', 
+		model: '500',
 		color: 'white',
 	},
 };
@@ -1464,7 +1464,7 @@ obj.counter();
 					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
 	id: 42,
 	counter: function counter() {
-	
+
 		setTimeout(function() {
 			console.log(this);
 		}.bind(this), 1000);
@@ -1481,7 +1481,7 @@ obj.counter();
 					<code class="language-js" style="max-height: 100%; padding: 20px;" data-trim>const obj = {
 	id: 42,
 	counter: function counter() {
-	
+
 		setTimeout(() => {
 			console.log(this);
 		}, 1000);
@@ -1554,7 +1554,7 @@ obj.clickListener();
 							<tr>
 								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
 
-x = 17; 
+x = 17;
 
 console.log(window.x);
 // 17</code></pre></td>
@@ -1570,7 +1570,7 @@ console.log(window.x);
 							<tr>
 								<td style="width: 50%;"><pre style="width: 100%;"><code class="language-js" style="padding: 20px;">
 
-x = 17; 
+x = 17;
 
 console.log(window.x);
 // 17</code></pre></td>
@@ -1589,7 +1589,7 @@ console.log(window.x);
 					<h5 style="white-space: nowrap;">Assignment to a non-writable global will throw error</h5>
 					<div>
 						<pre style="width: 100%;"><code class="language-js" style="padding: 20px;" data-trim>"use strict";
-						
+
 var undefined = 5;
 // throws a TypeError
 
@@ -2222,11 +2222,11 @@ console.log(garfieldCat.getName === tomCat.getName); // true
 		this.age = age;
 		this.gender = gender;
 	}
- 
+
 	getName() {
 		return this.name;
 	};
-	
+
 	getAge() {
 		return this.age;
 	};
@@ -2246,11 +2246,11 @@ console.log(cat.getAge()); // 10
 		this.age = age;
 		this.gender = gender;
 	}
- 
+
 	getName() {
 		return this.name;
 	};
-	
+
 	getAge() {
 		return this.age;
 	};
@@ -2269,11 +2269,11 @@ console.log(Cat.prototype);
 		this.age = age;
 		this.gender = gender;
 	}
- 
+
 	getName() {
 		return this.name;
 	};
-	
+
 	getAge() {
 		return this.age;
 	};
@@ -2292,11 +2292,11 @@ console.log(typeof Cat);
 		this.age = age;
 		this.gender = gender;
 	}
- 
+
 	getName() {
 		return this.name;
 	};
-	
+
 	getAge() {
 		return this.age;
 	};
@@ -2324,7 +2324,7 @@ console.log(typeof Cat);
 	this.gender = gender;
 };
 
-Cat.prototype = { 
+Cat.prototype = {
 	getName: function() {
 		return this.name;
 	},
@@ -2477,7 +2477,7 @@ console.log(myCat.says()); // 'meow'
 	this.firstName = first;
 	this.lastName = last;
 	this.age = age;
-  
+
 	const fullName = this.firstName + ' ' + this.lastName;
 	this.getFullName = () => fullName;
 }
@@ -2536,7 +2536,7 @@ console.log(son.getFullName());  // Bob Smith
 console.log(son.getFullName === father.getFullName);  // false
 </code></pre>
 				</section>
-				
+
 				<section data-transition="none-in" class="slide-top">
 					<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields" target="_blank">JS Private class fields - Stage 3</a></h4>
 					<pre style="height: 100%; width: 100%;">
@@ -2619,7 +2619,7 @@ console.log(son.getFullName());  // Bob Smith
 					<h3><a href="http://jsben.ch/YSsGu" target="_blank">Bind vs Arrow benchmark</a></h3>
 					<iframe width="100%" height="560px" src="http://jsben.ch/YSsGu"></iframe>
 				</section>
-			</section>	
+			</section>
 			<section style="height: calc(100% - 60px);">
 				<section>
 					<h2>Reuse Code Example</h2>
@@ -2691,7 +2691,7 @@ console.log(son.getFullName());  // Bob Smith
       return this._makePayment(orderId, paymentMethodId);
     });
   }
-  
+
   createSubscription(planId, accountCredential) {
     return this.haveAccountCredential(accountCredential)
       ? this._createSubscription(planId)
@@ -2703,7 +2703,7 @@ console.log(son.getFullName());  // Bob Smith
       return this._createSubscription(planId);
     });
   }
-  
+
   private _createSubscription(planId) { ... }
 
   private haveAccountCredential(accountCredential) { ... }
@@ -2726,7 +2726,7 @@ console.log(son.getFullName());  // Bob Smith
       return <mark style="background: rgb(100, 100, 100); color: inherit;">this._makePayment(orderId, paymentMethodId);</mark>
     });
   }
-  
+
   createSubscription(planId, accountCredential) {
     return this.haveAccountCredential(accountCredential)
       ? this._createSubscription(planId)
@@ -2738,7 +2738,7 @@ console.log(son.getFullName());  // Bob Smith
       return <mark style="background: rgb(100, 100, 100); color: inherit;">this._createSubscription(planId);</mark>
     });
   }
-  
+
   private _createSubscription(planId) { ... }
 
   private haveAccountCredential(accountCredential) { ... }
@@ -2761,7 +2761,7 @@ console.log(son.getFullName());  // Bob Smith
       return <mark style="background: rgb(100, 100, 100); color: inherit;">nextRequest();</mark>
     });
   }
-  
+
   createSubscription(planId, accountCredential) {
     return this.haveAccountCredential(accountCredential)
       ? this._createSubscription(planId)
@@ -2773,7 +2773,7 @@ console.log(son.getFullName());  // Bob Smith
       return this._createSubscription(planId);
     });
   }
-  
+
   private _createSubscription(planId) { ... }
 
   private haveAccountCredential(accountCredential) { ... }
@@ -2796,13 +2796,13 @@ console.log(son.getFullName());  // Bob Smith
       return <mark style="background: rgb(100, 100, 100); color: inherit;">nextRequest();</mark>
     });
   }
-  
+
   createSubscription(planId, accountCredential) {
     return this.haveAccountCredential(accountCredential)
       ? this._createSubscription(planId)
       : <mark style="background: rgb(100, 100, 100); color: inherit;">this.createAccountCredential(planId);</mark>
   }
-  
+
   private _createSubscription(planId) { ... }
 
   private haveAccountCredential(accountCredential) { ... }
@@ -2828,7 +2828,7 @@ console.log(son.getFullName());  // Bob Smith
       return nextRequest();
     });
   }
-  
+
   createSubscription(planId, accountCredential) {
     <mark style="background: rgb(100, 100, 100); color: inherit;">const createSubscriptionCallback = () => {
       this._createSubscription(planId);
@@ -2837,7 +2837,7 @@ console.log(son.getFullName());  // Bob Smith
       ? this._createSubscription(planId)
       : <mark style="background: rgb(100, 100, 100); color: inherit;">this.createAccountCredential(createSubscriptionCallback);</mark>
   }
-  
+
   private _createSubscription(planId) { ... }
 
   private haveAccountCredential(accountCredential) { ... }
@@ -2861,14 +2861,14 @@ console.log(son.getFullName());  // Bob Smith
       return nextRequest();
     });
   }
-  
+
   createSubscription(planId, accountCredential) {
     <mark style="background: rgb(100, 100, 100); color: inherit;">const createSubscriptionCallback = this._createSubscription.bind(this, planId);</mark>
     return this.haveAccountCredential(accountCredential)
       ? this._createSubscription(planId)
       : <mark style="background: rgb(100, 100, 100); color: inherit;">this.createAccountCredential(createSubscriptionCallback);</mark>
   }
-  
+
   private _createSubscription(planId) { ... }
 
   private haveAccountCredential(accountCredential) { ... }
@@ -2890,14 +2890,14 @@ console.log(son.getFullName());  // Bob Smith
   createAccountCredential(nextRequest) {
     return this.http.post('api/create-account').then(<mark style="background: rgb(100, 100, 100); color: inherit;">nextRequest</mark>);
   }
-  
+
   createSubscription(planId, accountCredential) {
     const createSubscriptionCallback = this._createSubscription.bind(this, planId);
     return this.haveAccountCredential(accountCredential)
       ? this._createSubscription(planId)
       : this.createAccountCredential(createSubscriptionCallback);
   }
-  
+
   private _createSubscription(planId) { ... }
 
   private haveAccountCredential(accountCredential) { ... }
